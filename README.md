@@ -106,7 +106,8 @@ jupyter notebook
 
 Open Diabetic_Retinopathy.ipynb and execute all cells.
 
-🎯 Learning Outcomes
+
+🎯 Learning Outcomes:-
 
 ✔ Medical image preprocessing using OpenCV
 
@@ -118,7 +119,8 @@ Open Diabetic_Retinopathy.ipynb and execute all cells.
 
 ✔ Building interpretable and scalable AI healthcare systems
 
-👤 Authors
+
+👤 Authors:-
 
 Loukik Reddy Mekala
 📌 GitHub: https://github.com/mloukikreddy
