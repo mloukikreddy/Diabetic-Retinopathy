@@ -48,23 +48,41 @@ Google Colab / Jupyter Notebook
 📂 Project Structure
 
 diabetic-retinopathy-detection/
+
 │
+
 ├── dataset/
+
 │   ├── OCT/
+
 │   └── Fundus/
+
 │
+
 ├── notebooks/
+
 │   └── Diabetic_Retinopathy.ipynb
+
 │
+
 ├── models/
+
 │   ├── vgg16_feature_extractor.pkl
+
 │   └── lightgbm_classifier.pkl
+
 │
+
 ├── results/
+
 │   ├── confusion_matrix.png
+
 │   └── accuracy_plots.png
+
 │
+
 ├── requirements.txt
+
 └── README.md
 
 
