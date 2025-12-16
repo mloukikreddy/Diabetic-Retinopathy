@@ -86,7 +86,7 @@ diabetic-retinopathy-detection/
 
 Clone the repository
 
-git clone https://github.com/mloukikreddy/<your-repo-name>.git
+git clone https://github.com/mloukikreddy/diabetic-retinopathy.git
 
 
 Navigate to the project directory
