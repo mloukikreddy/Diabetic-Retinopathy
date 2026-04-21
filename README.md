@@ -1,116 +1,148 @@
-# 🩺 Diabetic Retinopathy Detection Using Machine Learning
+# Diabetic Retinopathy Detection
 
-An end-to-end AI-powered medical imaging system for detecting and grading Diabetic Retinopathy (DR) using OCT and Fundus retinal images. The project combines deep learning–based feature extraction with classical machine learning to deliver accurate, interpretable, and efficient diagnosis support.
-
----
-
-## 📌 Project Overview
-
-This project presents a hybrid machine learning framework that leverages a pretrained VGG16 CNN for deep feature extraction and LightGBM for classification. The system analyzes retinal images to classify patients into Normal, Moderate DR, and Severe DR stages. The approach focuses on high accuracy, reduced computational cost, and model interpretability, making it suitable for real-world clinical and tele-ophthalmology applications.
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/mloukikreddy/Diabetic-Retinopathy/blob/main/Diabetic_Retinopathy.ipynb)
 
 ---
 
-## 🚀 Features
+## Overview
 
-- 🧠 Hybrid ML Architecture (Deep Learning + Classical ML)
-- 🩻 Supports OCT and Fundus retinal images
-- 📊 High accuracy (up to 99% with LightGBM)
-- 🔍 Interpretable predictions using feature-based learning
-- ⚡ Fast inference with low computational overhead
-- 📈 Detailed evaluation (Accuracy, Precision, Recall, F1-Score, Confusion Matrix)
-- ☁️ Cloud-ready (Google Colab / Jupyter compatible)
+This project implements a deep learning-based approach to detect diabetic retinopathy from retinal fundus images. Early detection is critical in preventing vision loss, and this model aims to assist in automated screening using image classification techniques.
 
 ---
 
-## 🛠️ Technologies Used
-- Programming Language: Python 3.x
-- Deep Learning & ML: TensorFlow / Keras (VGG16 feature extractor)
-- LightGBM (classification)
-- Scikit-learn (evaluation & preprocessing)
-- Image Processing: OpenCV, NumPy
-- Visualization: Matplotlib, Seaborn
-- Environment: Google Colab / Jupyter Notebook
+## Problem Statement
+
+Diabetic retinopathy is a leading cause of blindness among diabetic patients. Manual diagnosis is time-consuming and requires expert ophthalmologists. This project explores deep learning techniques to automate detection using retinal images.
 
 ---
 
-## 📂 Project Structure
+## Dataset
+
+- **Source:** https://www.kaggle.com/datasets/danielwill004/new-dr-dataset  
+- **Type:** Retinal fundus images  
+- **Size:** ~5000 images  
+- **Classes:** Multiple stages of diabetic retinopathy  
+
+> ⚠️ Dataset is not included due to large size.
+
+---
+
+## Project Workflow
+
+1. Data Collection  
+2. Data Preprocessing (resizing, normalization)  
+3. Train-validation split  
+4. CNN Model Development  
+5. Model Training  
+6. Evaluation & Prediction  
+
+---
+
+## Model Architecture
+
+- Convolutional Neural Network (CNN)  
+- Conv2D + MaxPooling layers  
+- Fully connected layers  
+- Dropout for regularization  
+
+---
+
+## Technologies Used
+
+- Python  
+- TensorFlow / Keras  
+- NumPy  
+- Matplotlib  
+- OpenCV  
+- Google Colab  
+
+---
+
+## Setup & Execution
+
+### Option 1 — Google Drive
+
+1. Download dataset  
+2. Upload to Google Drive  
+3. Mount Drive in Colab  
+4. Update dataset path  
+
+---
+
+### Option 2 — Kaggle API (Recommended)
+
+```python
+!pip install -q kaggle
+from google.colab import files
+files.upload()
+
+!mkdir -p ~/.kaggle
+!cp kaggle.json ~/.kaggle/
+!chmod 600 ~/.kaggle/kaggle.json
+
+!kaggle datasets download -d danielwill004/new-dr-dataset
+!unzip new-dr-dataset.zip -d dataset/
 
 ```
-diabetic-retinopathy-detection/
-│
-├── dataset/
-│   ├── OCT/
-│   └── Fundus/
-│
-├── notebooks/
-│   └── Diabetic_Retinopathy.ipynb
-│
-├── models/
-│   ├── vgg16_feature_extractor.pkl
-│   └── lightgbm_classifier.pkl
-│
-├── results/
-│   ├── confusion_matrix.png
-│   └── accuracy_plots.png
-│
-├── requirements.txt
-└── README.md
-
-```
 ---
 
-## ⚙️ How It Works
+## Results
+Performance Metrics
+Accuracy: 100.00%
+Precision: 1.00
+Recall: 1.00
+F1-Score: 1.00
 
-1️⃣ User provides OCT or Fundus retinal images
+Note: High accuracy may indicate potential overfitting; further validation is recommended.
+---
 
-2️⃣ Images are resized, normalized, and preprocessed
+## Classification Report
 
-3️⃣ VGG16 CNN extracts deep visual features
-
-4️⃣ Features are standardized and passed to LightGBM
-
-5️⃣ Model predicts the Diabetic Retinopathy stage
-
-6️⃣ Output includes prediction label and confidence score
+| Class      | Precision | Recall | F1-Score |
+| ---------- | --------- | ------ | -------- |
+| 0 (Normal) | 1.00      | 1.00   | 1.00     |
+| 1 (DR)     | 1.00      | 1.00   | 1.00     |
 
 ---
 
-## 🧪 How to Run Locally
-
-### 1.Clone the repository
-```bash
-git clone https://github.com/mloukikreddy/diabetic-retinopathy.git
-```
-### 2. Navigate to the project directory
-- cd diabetic-retinopathy-detection
-- Install dependencies
-- pip install -r requirements.txt
-- Run the notebook
-- jupyter notebook
-
-Open Diabetic_Retinopathy.ipynb and execute all cells.
+## Sample Prediction
+Prediction: Moderate Diabetic Retinopathy
+Confidence: 99.50%
 
 ---
 
-## 🎯 Learning Outcomes:-
-
-✔ Medical image preprocessing using OpenCV
-
-✔ Deep feature extraction with pretrained CNNs
-
-✔ Hybrid ML model design (DL + LightGBM)
-
-✔ Model evaluation using clinical performance metrics
-
-✔ Building interpretable and scalable AI healthcare systems
-
----
-## 👤 Authors:-
-
-**Loukik Reddy Mekala**
-📌 GitHub: https://github.com/mloukikreddy
+## Key Highlights
+Used transfer learning (VGG16) for feature extraction
+Combined with LightGBM for classification
+Achieved high accuracy on medical image dataset
+Supports automated retinal image analysis
 
 ---
 
-## Project Domain:
-Artificial Intelligence | Machine Learning | Medical Image Analysis
+## Limitations
+Performance depends on dataset quality
+Requires further tuning for higher accuracy
+Not suitable for clinical use without validation
+
+---
+
+## Future Improvements
+Use larger and more diverse datasets
+Apply cross-validation
+Implement explainable AI (Grad-CAM)
+Deploy as a web application
+Use advanced models (EfficientNet, ResNet)
+
+---
+
+## Reproducibility
+Dataset source provided
+Kaggle API supported
+Lightweight repository
+
+---
+
+## Notes
+Developed using Google Colab
+Dataset handled via Google Drive
+Large files excluded using .gitignore
